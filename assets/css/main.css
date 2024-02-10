@@ -3468,7 +3468,7 @@ input, select, textarea {
 			-ms-transition: opacity 0.2s ease;
 			transition: opacity 0.2s ease;
 			height: inherit;
-			left: 1.25em;
+			left: 0.8em;
 			line-height: inherit;
 			position: absolute;
 			top: 0;
@@ -3484,6 +3484,7 @@ input, select, textarea {
 				@media screen and (max-width: 736px) {
 
 					#header h1 a {
+						left: 1.8em;
 						font-size: 0.8em;
 					}
 
@@ -3515,7 +3516,7 @@ input, select, textarea {
 
 					#header nav > ul > li > a {
 						border: 0;
-						color: #fff;
+						color: #f9f9f9;
 						display: block;
 						font-size: 0.8em;
 						letter-spacing: 0.225em;
