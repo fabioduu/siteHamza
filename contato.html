@@ -8,7 +8,7 @@
 
 <head>
 
-	<title>PACHA</title>
+	<title>PACHA - Contato</title>
 
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -33,7 +33,8 @@
 		<header id="header" class="alt">
 			<h1
 				style="font-size: 18px; color: #0d0d0d; font-family: 'Inter', sans-serif; letter-spacing: 0em; font-weight: 798;">
-				<a href="index.html">PACHA</a></h1>
+				<a href="index.html">PACHA</a>
+			</h1>
 			<nav id="nav">
 				<ul>
 
@@ -43,7 +44,8 @@
 							<ul>
 
 								<li style="color: #0d0d0d;"><a href="https://loja-pacha.vercel.app/">Loja</a></li>
-								<li style="color: #0d0d0d;"><a href="index.html" class="more scrolly">Sobre a Pacha</a></li>
+								<li style="color: #0d0d0d;"><a href="index.html" class="more scrolly">Sobre a Pacha</a>
+								</li>
 								<li style="color: #0d0d0d;"><a href="videos.html" class="more scrolly">Videos
 										Instrutivos</a></li>
 								<li style="color: #0d0d0d;"><a href="contato.html" class="more scrolly">Contato</a></li>
@@ -72,11 +74,11 @@
 			<a href="#form" class="more scrolly"></a>
 		</section>
 
-		
+
 
 		<!-- One -->
 
-		
+
 
 
 		<!-- CTA -->
@@ -95,7 +97,7 @@
 
 
 
-					<form action="send_email.php" method="post">
+					<form action="mailto:fabiodljunior@gmail.com" method="post">
 
 						<input placeholder="Nome " type="text" id="name" name="name" required><br>
 
@@ -116,8 +118,45 @@
 			</div>
 		</section>
 
+		<script>
+			const constraints = {
+				name: {
+					presence: { allowEmpty: false }
+				},
+				email: {
+					presence: { allowEmpty: false },
+					email: true
+				},
+				message: {
+					presence: { allowEmpty: false }
+				}
+			};
+
+			const form = document.getElementById('contact-form');
+
+			form.addEventListener('submit', function (event) {
+				const formValues = {
+					name: form.elements.name.value,
+					email: form.elements.email.value,
+					message: form.elements.message.value
+				};
+
+				const errors = validate(formValues, constraints);
+
+				if (errors) {
+					event.preventDefault();
+					const errorMessage = Object
+						.values(errors)
+						.map(function (fieldValues) { return fieldValues.join(', ') })
+						.join("\n");
+
+					alert(errorMessage);
+				}
+			}, false);
+		</script>
+
 		<!-- Three -->
-		
+
 		<section id="cta" class="wrapper style4">
 
 		</section>
@@ -136,7 +175,7 @@
 							class="label">Instagram</span></a></li>
 				<li><a href="#form" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 				<li><a href="#" class="icon brands fa-whatsapp"><span class="label">Twitter</span></a></li>
-				
+
 				<!--
 							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
@@ -167,5 +206,3 @@
 </body>
 
 </html>
-
-						
