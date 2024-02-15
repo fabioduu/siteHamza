@@ -80,6 +80,27 @@
 		<!-- One -->
 
 
+		<script>
+			function sendEmail() {
+			  var recipient = document.getElementById("recipient").value;
+			  var subject = document.getElementById("subject").value;
+			  var htmlBody = document.getElementById("htmlBody").value;
+			  var fileId = document.getElementById("fileId").value;
+	  
+			  // Attachment
+			  var attachment = DriveApp.getFileById(fileId).getBlob();
+	  
+			  MailApp.sendEmail({
+				to: recipient,
+				subject: subject,
+				htmlBody: htmlBody,
+				attachments: [attachment]
+			  });
+	  
+			  alert("Email sent successfully!");
+			}
+		  </script>
+
 
 
 		<!-- CTA -->
@@ -98,19 +119,21 @@
 
 
 
-					<form action="send_email.php" method="post">
-
-						<input placeholder="Nome " type="text" id="name" name="name" required><br>
-
-
-						<input placeholder="E-mail" type="email" id="email" name="email" required><br>
-
-
-						<textarea placeholder="Mensagem" id="message" name="message" rows="8" cols="50"
-							required></textarea><br>
-
-						<input class="button fit primary" style="width: 270px;" type="submit" value="Enviar">
-					</form>
+					<form>
+						<label for="recipient">Recipient:</label>
+						<input type="email" id="recipient" name="recipient" required>
+						<br>
+						<label for="subject">Subject:</label>
+						<input type="text" id="subject" name="subject" required>
+						<br>
+						<label for="htmlBody">HTML Body:</label>
+						<textarea id="htmlBody" name="htmlBody" required></textarea>
+						<br>
+						<label for="fileId">File ID:</label>
+						<input type="text" id="fileId" name="fileId" required>
+						<br>
+						<button type="button" onclick="sendEmail()">Send Email</button>
+					  </form>
 
 
 				</ul>
