@@ -119,21 +119,19 @@
 
 
 
-					<form>
-						<label for="recipient">Recipient:</label>
-						<input type="email" id="recipient" name="recipient" required>
-						<br>
-						<label for="subject">Subject:</label>
-						<input type="text" id="subject" name="subject" required>
-						<br>
-						<label for="htmlBody">HTML Body:</label>
-						<textarea id="htmlBody" name="htmlBody" required></textarea>
-						<br>
-						<label for="fileId">File ID:</label>
-						<input type="text" id="fileId" name="fileId" required>
-						<br>
-						<button type="button" onclick="sendEmail()">Send Email</button>
-					  </form>
+					<form action="send_email.php" method="post">
+
+						<input placeholder="Nome " type="email" id="recipient" name="recipient" required><br>
+
+
+						<input placeholder="E-mail" type="email" id="email" name="email" required><br>
+
+
+						<textarea placeholder="Mensagem" id="message" name="message" rows="8" cols="50"
+							required></textarea><br>
+
+						<input class="button fit primary" style="width: 270px;" type="submit" value="Enviar">
+					</form>
 
 
 				</ul>
