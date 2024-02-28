@@ -80,26 +80,6 @@
 		<!-- One -->
 
 
-		<script>
-			function sendEmail() {
-			  var recipient = document.getElementById("recipient").value;
-			  var subject = document.getElementById("subject").value;
-			  var htmlBody = document.getElementById("htmlBody").value;
-			  var fileId = document.getElementById("fileId").value;
-	  
-			  // Attachment
-			  var attachment = DriveApp.getFileById(fileId).getBlob();
-	  
-			  MailApp.sendEmail({
-				to: recipient,
-				subject: subject,
-				htmlBody: htmlBody,
-				attachments: [attachment]
-			  });
-	  
-			  alert("Email sent successfully!");
-			}
-		  </script>
 
 
 
@@ -119,18 +99,19 @@
 
 
 
-					<form action="https://script.google.com/macros/s/AKfycbxlBRQSbI4YHdR_Udi9QZfqsy-ZPC3HQmM0KMrguEHu_OO9jo6ZBfNL8_UfAZGbMW7tvQ/exec" method="post">
+					<form id="form" onsubmit="emailSend(); reset(); return false;">
 
-						<input placeholder="Nome " type="email" id="recipient" name="recipient" required><br>
-
-
-						<input placeholder="E-mail" type="email" id="email" name="email" required><br>
+						<input placeholder="Nome " type="text" id="name" required><br>
 
 
-						<textarea placeholder="Mensagem" id="message" name="message" rows="8" cols="50"
+						<input placeholder="phone" type="text" id="phone" name="phone" required><br>
+
+
+						<textarea placeholder="Mensagem" id="email" name="email" rows="8" cols="50"
 							required></textarea><br>
 
-						<input class="button fit primary" style="width: 270px;" type="submit" value="Enviar">
+						<button class="button fit primary" type="submit" class="btn">ENVIAR</button>
+
 					</form>
 
 
@@ -189,6 +170,9 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+	<script src="send.js"></script>
 
 </body>
 
